@@ -1,25 +1,21 @@
 var userSelected;
 var userCity;
 var userCityMeetUp;
-var name;
 
 $(document).on("click", ".gallery__preview", function (){
     userSelected = $(this).attr("data-topic");
   console.log(userSelected);
       runajax(userSelected, userCity, userCityMeetUp);
-});
+})
 
 
 
 $(document).on("click", ".city-btn", function (){
     userCity = $(this).attr("data-city");
     userCityMeetUp = $(this).attr("data-meetup");
-    name= $("#name-input").val().trim();
   console.log(userCity);
   console.log(userCityMeetUp);
-  console.log(name);
-  console.log("hello");
-});
+})
 
 
 // console.log("userSelected");

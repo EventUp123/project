@@ -1,25 +1,21 @@
 var userSelected;
 var userCity;
 var userCityMeetUp;
-var name;
 
 $(document).on("click", ".gallery__preview", function (){
     userSelected = $(this).attr("data-topic");
   console.log(userSelected);
       runajax(userSelected, userCity, userCityMeetUp);
-});
+})
 
 
 
 $(document).on("click", ".city-btn", function (){
     userCity = $(this).attr("data-city");
     userCityMeetUp = $(this).attr("data-meetup");
-    name= $("#name-input").val().trim();
   console.log(userCity);
   console.log(userCityMeetUp);
-  console.log(name);
-  console.log("hello");
-});
+})
 
 
 // console.log("userSelected");
@@ -59,6 +55,20 @@ var runajax  = function(userSelected, userCity, userCityMeetUp){
       console.log(resultsEB);
         console.log(userCityMeetUp);
 
+
+      $.ajax({
+        url: $('#myModal').val(),
+        type: "POST",
+        data: { Request: Request },
+        dataType: "json",
+        success: function () {
+          $("#eventup-modal").modal('show'); // modal popup's but refNo doesn't show.
+
+
+
+
+
+//Meetup Ajax
           var queryURLmu = "https://api.meetup.com/2/open_events?&sign=true&photo-host=public&country=US&topic=" + userSelected + "&city=" + userCityMeetUp+ "&state=CA&page=50&key=6073131471a217a1240677f485a497c"
 
           $.ajax({
@@ -90,5 +100,9 @@ var runajax  = function(userSelected, userCity, userCityMeetUp){
 
           });//END OF 2ND AJAX
 
+
+        }//end of sucess function
+      });//end of ajax modal
+
 });//END of 1st ajax
-            };
+            };//end of runajax
