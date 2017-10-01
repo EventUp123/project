@@ -6,7 +6,7 @@ $(document).on("click", ".gallery__preview", function (){
     userSelected = $(this).attr("data-topic");
   console.log(userSelected);
       runajax(userSelected, userCity, userCityMeetUp);
-})
+});
 
 
 
@@ -15,7 +15,8 @@ $(document).on("click", ".city-btn", function (){
     userCityMeetUp = $(this).attr("data-meetup");
   console.log(userCity);
   console.log(userCityMeetUp);
-})
+  console.log("hello");
+});
 
 
 // console.log("userSelected");
