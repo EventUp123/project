@@ -38,7 +38,7 @@ button, input[type=submit] {
 	color: 	#ffffff;
   padding-top: 15px;
 	font-family: 'Lobster', cursive !important;
-	font-size: 38px;
+	font-size: 35px;
 	font-weight: 700;
 	text-shadow: 0 5px 5px #333;
 
@@ -73,9 +73,6 @@ button, input[type=submit] {
 
 }
 
-.page-header__title{
-      font-family: 'Lobster', cursive !important;
-}
 /*End of EventUp CSS*/
 
 ::-moz-selection {
@@ -134,7 +131,7 @@ button, input[type=submit] {
 .page-header__title {
 	display: block;
 	margin: 0 auto;
-	font-family: "PT Sans", Tahoma, Verdana, Arial, sans-serif;
+	font-family: 'Lobster', cursive;
 	font-size: 110px;
 	font-weight: 700;
 	line-height: 1;
