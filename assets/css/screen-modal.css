@@ -58,7 +58,6 @@ button, input[type=submit] {
 
 #step-3{
   margin-top: 25px;
-  margin-left: 120px;
 }
 
 #radio{
@@ -73,6 +72,48 @@ button, input[type=submit] {
 
 }
 
+
+/*EventUp Modal CSS*/
+/*modal*/
+}
+.modal-img{
+  -webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-webkit-flex-shrink: 1;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	width: 80%;
+	/*padding: 1.5vw*/
+  padding: 20px 5px 5px 5px;
+
+}
+
+.modal-header-title{
+  margin-top: 0px;
+  padding-top: 5px;
+  font-size: 20px;
+}
+/*.modal-backdrop.in{
+	opacity: 0;
+}*/
+/*.modal-lg {
+  width: 950px !important!
+}*/
+
+/*Results events*/
+#results-events-img{
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-webkit-flex-shrink: 1;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	width: 45%;
+	padding: 1.5vw
+}
 /*End of EventUp CSS*/
 
 ::-moz-selection {
@@ -389,7 +430,7 @@ button, input[type=submit] {
 }
 @media screen and (max-width:960px), screen and (max-height:640px) {
 	.page-header__title {
-		font-size: 50px
+		font-size: 110px
 	}
 }
 @media screen and (max-width:960px) {
@@ -412,7 +453,7 @@ button, input[type=submit] {
 }
 @media screen and (max-width:640px), screen and (max-height:480px) {
 	.page-header__title {
-		font-size: 40px
+		font-size: 80px
 	}
 	.page-footer__text {
 		font-size: 24px
@@ -444,4 +485,17 @@ button, input[type=submit] {
 	.gallery__preview-title {
 		font-size: 22px
 	}
+}
+
+/*eventup modal*/
+@media (min-width: 992px) {
+.modal-lg {
+  width: 950px !important!
+}
+}
+
+@media (min-width: 768px){
+.modal-dialog{
+  width: 650px !important!
+
 }

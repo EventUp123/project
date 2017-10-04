@@ -153,15 +153,25 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
 
               console.log(resultsMU);
 
-              var venue = response.results[i].venue
-
-              if(venue) {
+              var venueMP = response.results[i].venue
+              var dataMP = response.results;
+              if(venueMP) {
                 if (venue.city === userCityMeetUp) {
 
                 console.log(venue.city);
                 console.log(response.results[i].name);
                 console.log(response.results[i].group.name)
 
+
+                // $("#meetup-results").append(
+                //     `
+                //     <h3 class="modal-header-title"> ${venueMP.city} </h3>
+                //     <p class="modal-date"> ${venueMP.name} </p>
+                //     <div class="modal-descip"> ${loopDataEB.description.html.img} </div>
+                //      <p class="modal-link-event"><a href = "${loopDataEB.url}"> Learn More </div>
+                //     `
+                //
+                //   )//end of append results
 
 
 
