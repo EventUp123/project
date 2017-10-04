@@ -125,7 +125,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
             $("#eventbrite-results").append(
 
                 `<div class="masonry-result">
-                  <img class="d-flex align-self-start mr-3" id="results-events-img" src="http://via.placeholder.com/350x150">
+                  <img class="d-flex align-self-start mr-3" class="results-events-img" src="http://via.placeholder.com/350x150">
                    <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                    <p class="modal-date"> ${loopDataEB.start.utc} </p>
                    <p class="modal-link-event"><a href = "${loopDataEB.url}"> Learn More </div>
@@ -142,7 +142,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
           $("#eventbrite-results").append(
 
               `<div class="masonry-result">
-                <img class="d-flex align-self-start mr-3" id="results-events-img" src="${loopDataEB.logo.url}">
+                <img class="d-flex align-self-start mr-3" class="results-events-img" src="${loopDataEB.logo.url}">
                  <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                  <p class="modal-date"> ${loopDataEB.start.utc} </p>
                  <p class="modal-link-event"><a href = "${loopDataEB.url}"> Learn More </div>
