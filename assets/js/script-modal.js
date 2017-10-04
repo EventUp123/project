@@ -59,7 +59,7 @@ var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
     database.ref().push(newProfile);
 
     //Testing input with console logs
-    console.log(newProfile.userName);
+    // console.log(newProfile.userName);
 
     //Clears all input boxes upon submit to database
     $("#name-input").val("");
@@ -105,33 +105,55 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
     }).done(function(response) {
       var resultsEB = response;
 
-      console.log(response.events[0].name[0]);
-      console.log(response.events[0].description);
-      console.log(response.events[0].url);
-      console.log(response.events[0].logo.url);
+      // console.log(response.events[0].name[0]);
+      // console.log(response.events[0].description);
+      // console.log(response.events[0].url);
+      // console.log(response.events[0].logo.url);
 
         $("#eventbrite-results").empty()
         var dataEB = response.events;
 
         for (var i = 0; i < dataEB.length; i++){
           var loopDataEB = response.events[i]
-          // if(loopDataEB.logo.url === "null"){
-          //   "loopDataEB.logo.url: https://media1.giphy.com/media/d3yxg15kJppJilnW/giphy.gif?fingerprint=e1bb72ff59d32d997858774c4dd609ea"
-          // }
 
+
+          // var image = loopDataEB.logo.url || "http://via.placeholder.com/350x150"
+          // console.log(image);
+          if(loopDataEB.logo === null){
+            // var newImage = $('<img class="d-flex align-self-start mr-3" id="results-events-img" src="http://via.placeholder.com/350x150">');
+
+            $("#eventbrite-results").append(
+
+                `<div class="masonry-result">
+                  <img class="d-flex align-self-start mr-3" id="results-events-img" src="http://via.placeholder.com/350x150">
+                   <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
+                   <p class="modal-date"> ${loopDataEB.start.utc} </p>
+                   <p class="modal-link-event"><a href = "${loopDataEB.url}"> Learn More </div>
+                   </div>
+                `
+
+              )//end of append eventbrite
+
+
+            // loopDataEB.logo.url = "http://via.placeholder.com/350x150"
+
+            console.log("hello");
+          } else {
           $("#eventbrite-results").append(
-              `
-               <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
-               <p class="modal-date"> ${loopDataEB.start.utc} </p>
-              <div class="modal-descip"> ${loopDataEB.description.html.img} </div>
-               <p class="modal-link-event"><a href = "${loopDataEB.url}"> Learn More </div>
+
+              `<div class="masonry-result">
+                <img class="d-flex align-self-start mr-3" id="results-events-img" src="${loopDataEB.logo.url}">
+                 <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
+                 <p class="modal-date"> ${loopDataEB.start.utc} </p>
+                 <p class="modal-link-event"><a href = "${loopDataEB.url}"> Learn More </div>
+                 </div>
               `
 
             )//end of append eventbrite
 
         }// end of eventbrite forloop
-
-// <img class="d-flex align-self-start mr-3" id="results-events-img" src="${loopDataEB.logo.url}">               <div class="modal-descip"> ${loopDataEB.description.html} </div>
+}
+// <div class="modal-descip"> ${loopDataEB.description.html} </div>
 
       console.log(resultsEB);
       console.log(userCityMeetUp);
