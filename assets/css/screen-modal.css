@@ -114,6 +114,26 @@ button, input[type=submit] {
 	width: 45%;
 	padding: 1.5vw
 }
+
+/*dynamic injected modal styling*/
+.results-events-img{
+	width: 350px;
+	height: 250px;
+}
+
+.masonry-result{
+	padding: 25px;
+}
+
+.modal-link-event, .modal-date{
+	font-size: 17px;
+}
+
+.modal-header-title{
+	padding: 10px 0px;
+}
+
+
 /*End of EventUp CSS*/
 
 ::-moz-selection {
