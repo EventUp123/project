@@ -52,7 +52,7 @@ button, input[type=submit] {
 }
 
 .btn-text{
-	font-family: 'Raleway', sans-serif 
+	font-family: 'Raleway', sans-serif
 }
 
 .steps{
@@ -93,8 +93,8 @@ button, input[type=submit] {
 .btn-grad-name {background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%)}
 .btn-grad-name:hover { background-position: right center; }
 
-.btn-grad:hover { 
-	background-position: right center; 
+.btn-grad:hover {
+	background-position: right center;
 }
 
 /*EventUp Modal CSS*/
@@ -167,8 +167,8 @@ button, input[type=submit] {
 	width: 500px;
 	float:left;
 	margin-right:10px;
-	white-space: nowrap; 
-    width: 12em; 
+	white-space: nowrap;
+    width: 12em;
     overflow: hidden;
     text-overflow: ellipsis;
 
@@ -207,7 +207,7 @@ button, input[type=submit] {
 	z-index: 0;
 	height: 50vh;
 	background-color: #ffffff;
-	background-image: url(../images/blocks/page-header/Background-3.jpg);
+	background-image: url(../images/blocks/page-header/background-3.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -273,7 +273,7 @@ button, input[type=submit] {
 	z-index: 0;
 	height: 50vh;
 	background-color: #ccc;
-	background-image: url(../images/blocks/page-footer/Background-3.jpg);
+	background-image: url(../images/blocks/page-footer/background-3.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center
