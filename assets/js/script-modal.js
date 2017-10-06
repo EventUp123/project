@@ -17,6 +17,125 @@ var userCityMeetUp;
 var userName;
 
 
+// variables for trending topics // Dario
+var topicCount = {
+    topicCountSports: 0,
+    topicCountArt: 0,
+    topicCountTechnology: 0,
+    topicCountOutdoors: 0,
+    topicCountMusic: 0,
+    topicCountFashion: 0,
+    topicCountCareers: 0,
+    topicCountGaming: 0,
+    topicCountFamily: 0
+}
+
+var trendingTopics = [];
+var top3Topics = [];
+
+// At the initial load, get a snapshot of the current data and find trending topics. // Dario
+database.ref().on("value", function(snapshot) {
+    var firebaseData = snapshot.val()
+    for (var key in firebaseData) {
+      countTopics(firebaseData[key].topic);
+    };
+    trendingTopics = sortObject(topicCount);
+    // console.log(trendingTopics);
+    top3Topics = findTrendingTopics(trendingTopics);
+  // Need to code this function!!! // Dario
+    displayTrending(top3Topics);
+});
+
+//Apend trending topics
+function displayTrending(arr){
+  $("#trending-results").empty();
+  // console.log(arr);
+  $("#trending-results").append(
+    `<p>Top 3 Trending Results: ${arr[0].tempString}, ${arr[1].tempString}, ${arr[2].tempString}  </p>
+    `
+
+  )
+
+}
+
+
+function findTrendingTopics(data) {
+    var arr = [];
+    var tempString;
+    for (var i = 0; i < 3; i++) {
+        tempString = data[i].key;
+        tempString = tempString.replace("topicCount", "");
+        arr.push({
+            tempString
+        });
+    };
+    return arr; // returns array
+}
+
+
+// Function that counts topics and updates global variables // Dario
+
+function countTopics (value) {
+    if (value === "sports") {
+        topicCount.topicCountSports++;
+    }
+    else if (value === "art") {
+        topicCount.topicCountArt++;
+    }
+    else if (value === "technology") {
+        topicCount.topicCountTechnology++;
+    }
+    else if (value === "outdoors") {
+        topicCount.topicCountOutdoors++;
+    }
+    else if (value === "music") {
+        topicCount.topicCountMusic++;
+    }
+    else if (value === "fashion") {
+        topicCount.topicCountFashion++;
+    }
+    else if (value === "careers") {
+        topicCount.topicCountCareers++;
+    }
+    else if (value === "gaming") {
+        topicCount.topicCountGaming++;
+    }
+    else if (value === "family") {
+        topicCount.topicCountFamily++;
+    }
+};
+
+// Function to Clear Count Variables // Dario
+function clearCountVariables() {
+    topicCount.topicCountSports = 0;
+    topicCount.topicCountArt = 0;
+    topicCount.topicCountTechnology = 0;
+    topicCount.topicCountOutdoors = 0;
+    topicCount.topicCountMusic = 0;
+    topicCount.topicCountFashion = 0;
+    topicCount.topicCountCareers = 0;
+    topicCount.topicCountGaming = 0;
+    topicCount.topicCountFamily = 0;
+};
+
+// Function to Sort an Object // Dario
+function sortObject (obj) {
+    var arr = [];
+    var key;
+    for (key in obj) {
+        arr.push({
+            'key': key,
+            'value': obj[key]
+        });
+    };
+    arr.sort(function(a, b) {
+        return b.value - a.value;
+    });
+    return arr; // returns array
+};
+
+//End of Dario Firebase
+
 
 //click button to capture city from radio button
 $(document).on("click", ".city-btn", function (){
@@ -37,8 +156,6 @@ $(document).on("click", ".gallery__preview", function (){
     console.log(userSelected);
       runajax(userSelected, userCityEB, userCityMeetUp);
       runFirebase(userName, userSelected, userCityEB, userCityMeetUp);
-
-
 
 });
 
@@ -62,7 +179,11 @@ var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
     // console.log(newProfile.userName);
 
     //Clears all input boxes upon submit to database
-    $("#name-input").val("");
+
+
+    // Clears Count Variables // Dario
+    clearCountVariables();
+
 
     //Creating Firebase even for adding new profiles
 
@@ -76,7 +197,9 @@ var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
         var userCityEB = childSnapshot.val().ebCity;
         var userCityMeetUp = childSnapshot.val().mpCity;
 
-    //CREATE COUNTING FUNCTION
+        //CALL COUNTING FUNCTION // Dario
+        countTopics(userSelected);
+
 
     //Handles the errors
     }, function(errorObject) {
@@ -84,6 +207,13 @@ var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
         });
 
   //End of api call and firebase push
+
+      // Check Topics Count Object // Dario
+      console.log(topicCount);
+      trendingTopics = sortObject(topicCount);
+      top3Topics = findTrendingTopics(trendingTopics);
+      // Need to code this function!!! // Dario
+      displayTrending(top3Topics);
 
 } // end of runFirebase
 
@@ -188,6 +318,8 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
             }).done(function(response) {
              $("#meetup-results").empty()
             var resultsMU = response;
+            $("#meetup-results").empty()
+
 
             for (var i = 0; i < response.results.length; i++) {
 
@@ -206,6 +338,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "sports"){
                 //create if statement
                 $("#meetup-results").append(
+
                     `<div class="grid-item" class="col-md-6">
                         <div class="masonry-result">
                         <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/TrXccx2cCI6Xu/giphy.gif">
@@ -219,7 +352,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected sports
 
-                if (userSelected === "art"){
+                else if (userSelected === "art"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="grid-item" class="col-md-6">
@@ -235,7 +368,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected art
 
-                if (userSelected === "technology"){
+                else if (userSelected === "technology"){
                 //create if statement
                 $("#meetup-results").append(
                   ` <div class="grid-item" class="col-md-6">    
@@ -251,7 +384,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected technology
 
-                if (userSelected === "outdoors"){
+                else if (userSelected === "outdoors"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="grid-item" class="col-md-6">
@@ -267,7 +400,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected outdoors
 
-                if (userSelected === "music"){
+                else if (userSelected === "music"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="grid-item" class="col-md-6">
@@ -283,7 +416,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected music
 
-                if (userSelected === "fashion"){
+                else if (userSelected === "fashion"){
                 //create if statement
                 $("#meetup-results").append(
 
@@ -301,7 +434,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected fashion
 
-                if (userSelected === "careers"){
+                else if (userSelected === "careers"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="grid-item" class="col-md-6">   
@@ -319,7 +452,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
 
 
 
-                if (userSelected === "gaming"){
+                else if (userSelected === "gaming"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="grid-item" class="col-md-6">
@@ -336,7 +469,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 }//end of userSelected gaming
 
 
-                if (userSelected === "family"){
+                else if (userSelected === "family"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="grid-item" class="col-md-6">
@@ -351,11 +484,6 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                     `
                   )//end of append meetup
                 }//end of userSelected careers
-
-
-
-
-
 
 
               }//end of venue.city if statement
