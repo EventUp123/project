@@ -110,6 +110,13 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
       // console.log(response.events[0].url);
       // console.log(response.events[0].logo.url);
 
+      // var button = document.createElement("button");
+      // button.innerHTML = ${loopDataEB.name.html}
+
+      // var appendTo = getElementsByClass("modal-link-event")
+      // appendTo.appendChild(button)
+
+
         $("#eventbrite-results").empty()
         var dataEB = response.events;
 
@@ -259,7 +266,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 $("#meetup-results").append(
                     `<div class="masonry-result">
                     <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/3o6ZsX760AIw9XnqA8/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3> <hr>
                      <p class="modal-location"> ${loopDataMP.venue.city} </p>
                     <div class="modal-descip"> ${loopDataEB.description.html} </div>
                     <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
