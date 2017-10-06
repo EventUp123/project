@@ -232,6 +232,7 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
       } else {
         $("#eventbrite-results").append(
           `<div class="masonry-result">
+
                 <img class="d-flex align-self-start mr-3 results-events-img" src="${loopDataEB.logo.url}">
                  <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                  <p class="modal-date"> ${loopDataEB.start.utc} </p>
@@ -339,5 +340,6 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
     }); //END OF 2ND AJAX
 
   }); //END of 1st ajax
+
 
 }; //End of RunAJAX
