@@ -118,7 +118,7 @@ button, input[type=submit] {
 /*dynamic injected modal styling*/
 .results-events-img{
 	width: 350px;
-	height: 250px;
+	height: 150px;
 }
 
 .masonry-result{
@@ -133,6 +133,16 @@ button, input[type=submit] {
 	padding: 10px 0px;
 }
 
+.grid-item {
+	width: 200px;
+	float:left;
+	margin-right:10px;
+	white-space: nowrap; 
+    width: 12em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
 
 /*End of EventUp CSS*/
 
