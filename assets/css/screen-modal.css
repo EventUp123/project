@@ -147,7 +147,7 @@ button, input[type=submit] {
 /*dynamic injected modal styling*/
 .results-events-img{
 	width: 350px;
-	height: 250px;
+	height: 150px;
 }
 
 .masonry-result{
@@ -162,6 +162,27 @@ button, input[type=submit] {
 .modal-header-title{
 	padding: 10px 0px;
 }
+
+.grid-item {
+	width: 500px;
+	float:left;
+	margin-right:10px;
+	white-space: nowrap; 
+    width: 12em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+#eventbrite-results {
+	margin-left:40px;
+}
+
+#meetup-results {
+	margin-right:40px;
+}
+
+
 
 
 /*End of EventUp CSS*/

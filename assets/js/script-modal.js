@@ -131,12 +131,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
 
             $("#eventbrite-results").append(
 
-                `<div class="masonry-result">
+                `<div class="grid-item" class="col-md-6">
+                <div class="masonry-result">
                   <img class="d-flex align-self-start mr-3 results-events-img" src="https://media1.giphy.com/media/d3yxg15kJppJilnW/giphy.gif?fingerprint=e1bb72ff59d32d997858774c4dd609ea">
                    <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                    <p class="modal-date"> ${loopDataEB.start.utc} </p>
                    <p class="modal-link-event"><a href = "${loopDataEB.url}" target="_blank"> Learn More </a></div>
                    </div>
+                </div>
                 `
 
               )//end of append eventbrite
@@ -147,17 +149,26 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
           } else {
           $("#eventbrite-results").append(
 
-              `<div class="masonry-result">
+              `<div class="grid-item" class="col-md-6">
+              <div class="masonry-result">
                 <img class="d-flex align-self-start mr-3 results-events-img" src="${loopDataEB.logo.url}">
                  <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                  <p class="modal-date"> ${loopDataEB.start.utc} </p>
                  <p class="modal-link-event"><a href = "${loopDataEB.url}" target="_blank"> Learn More </a></div>
                  </div>
+                </div>
               `
 
             )//end of append eventbrite
 
         }// end of eventbrite forloop
+
+        //now calling masonry
+        $("#eventbrite-results").masonry({
+          // options
+          itemSelector: ".grid-item",
+          columnWidth: ".grid-item"
+        });
 }
 // <div class="modal-descip"> ${loopDataEB.description.html} </div>
 
@@ -175,6 +186,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
           },
 
             }).done(function(response) {
+             $("#meetup-results").empty()
             var resultsMU = response;
 
             for (var i = 0; i < response.results.length; i++) {
@@ -194,13 +206,15 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "sports"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/TrXccx2cCI6Xu/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
-                    </div>
+                    `<div class="grid-item" class="col-md-6">
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/TrXccx2cCI6Xu/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
+                      </div>
                     `
                   )//end of append meetup
                 }//end of userSelected sports
@@ -208,12 +222,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "art"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/gVJKzDaWKSETu/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                    `<div class="grid-item" class="col-md-6">
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/gVJKzDaWKSETu/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
                     </div>
                     `
                   )//end of append meetup
@@ -222,12 +238,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "technology"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/26tOY3KjQUL9YhRT2/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                  ` <div class="grid-item" class="col-md-6">    
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/26tOY3KjQUL9YhRT2/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
                     </div>
                     `
                   )//end of append meetup
@@ -236,12 +254,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "outdoors"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/lMUGMp2lImgGA/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                    `<div class="grid-item" class="col-md-6">
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/lMUGMp2lImgGA/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
                     </div>
                     `
                   )//end of append meetup
@@ -250,13 +270,15 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "music"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/IXT16ltI7K2nC/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
-                    </div>
+                    `<div class="grid-item" class="col-md-6">
+                          <div class="masonry-result">
+                          <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/IXT16ltI7K2nC/giphy.gif">
+                          <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                           <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                          <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                          <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                          </div>
+                      </div>
                     `
                   )//end of append meetup
                 }//end of userSelected music
@@ -264,13 +286,17 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "fashion"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/3o6ZsX760AIw9XnqA8/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3> <hr>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
-                    </div>
+
+                    `<div class="grid-item" class="col-md-6">
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/3o6ZsX760AIw9XnqA8/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
+                      </div>
+
                     `
                   )//end of append meetup
                 }//end of userSelected fashion
@@ -278,12 +304,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "careers"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/VN1FNL6Lqc0vu/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                    `<div class="grid-item" class="col-md-6">   
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/VN1FNL6Lqc0vu/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
                     </div>
                     `
                   )//end of append meetup
@@ -294,12 +322,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "gaming"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/1wh06XT53tPGw/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                    `<div class="grid-item" class="col-md-6">
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/1wh06XT53tPGw/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
                     </div>
                     `
                   )//end of append meetup
@@ -309,12 +339,14 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 if (userSelected === "family"){
                 //create if statement
                 $("#meetup-results").append(
-                    `<div class="masonry-result">
-                    <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/26hirMtUp7F4Yp2jC/giphy.gif">
-                    <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
-                     <p class="modal-location"> ${loopDataMP.venue.city} </p>
-                    <div class="modal-descip"> ${loopDataEB.description.html} </div>
-                    <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                    `<div class="grid-item" class="col-md-6">
+                        <div class="masonry-result">
+                        <img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/26hirMtUp7F4Yp2jC/giphy.gif">
+                        <h3 class="modal-header-title"> ${loopDataMP.name} </h3>
+                         <p class="modal-location"> ${loopDataMP.venue.city} </p>
+                        <div class="modal-descip"> ${loopDataEB.description.html} </div>
+                        <p class="modal-link-event"><a href = "${loopDataEB.event_url}" target="_blank"> Learn More </a></div>
+                        </div>
                     </div>
                     `
                   )//end of append meetup
@@ -330,6 +362,12 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
             }//end of venue if
 
             }//end of forloop
+
+          $("#meetup-results").masonry({
+          // options
+          itemSelector: ".grid-item",
+          columnWidth: ".grid-item"
+        });
 
           });//END OF 2ND AJAX
 
