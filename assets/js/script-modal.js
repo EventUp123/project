@@ -169,6 +169,8 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
 
             }).done(function(response) {
             var resultsMU = response;
+            $("#meetup-results").empty()
+
 
             for (var i = 0; i < response.results.length; i++) {
 
@@ -198,7 +200,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected sports
 
-                if (userSelected === "art"){
+                else if (userSelected === "art"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -212,7 +214,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected art
 
-                if (userSelected === "technology"){
+                else if (userSelected === "technology"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -226,7 +228,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected technology
 
-                if (userSelected === "outdoors"){
+                else if (userSelected === "outdoors"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -240,7 +242,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected outdoors
 
-                if (userSelected === "music"){
+                else if (userSelected === "music"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -254,7 +256,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected music
 
-                if (userSelected === "fashion"){
+                else if (userSelected === "fashion"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -268,7 +270,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                   )//end of append meetup
                 }//end of userSelected fashion
 
-                if (userSelected === "careers"){
+                else if (userSelected === "careers"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -284,7 +286,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
 
 
 
-                if (userSelected === "gaming"){
+                else if (userSelected === "gaming"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
@@ -299,7 +301,7 @@ var runajax  = function(userSelected, userCityEB, userCityMeetUp){
                 }//end of userSelected gaming
 
 
-                if (userSelected === "family"){
+                else if (userSelected === "family"){
                 //create if statement
                 $("#meetup-results").append(
                     `<div class="masonry-result">
