@@ -208,6 +208,7 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
     $("#eventbrite-results").empty()
     var dataEB = response.events;
 
+
     for (var i = 0; i < dataEB.length; i++) {
       var loopDataEB = response.events[i]
 
@@ -215,12 +216,14 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
 
         $("#eventbrite-results").append(
 
+
           `<div class="masonry-result">
                   <img class="d-flex align-self-start mr-3 results-events-img" src="https://media1.giphy.com/media/d3yxg15kJppJilnW/giphy.gif?fingerprint=e1bb72ff59d32d997858774c4dd609ea">
                    <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                    <p class="modal-date"> ${loopDataEB.start.utc} </p>
                    <p class="modal-link-event"><a href = "${loopDataEB.url}" target="_blank"> Learn More </a></div>
                    </div>
+                </div>
                 `
 
         ) //end of append eventbrite
@@ -228,13 +231,14 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
 
       } else {
         $("#eventbrite-results").append(
-
           `<div class="masonry-result">
+
                 <img class="d-flex align-self-start mr-3 results-events-img" src="${loopDataEB.logo.url}">
                  <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                  <p class="modal-date"> ${loopDataEB.start.utc} </p>
                  <p class="modal-link-event"><a href = "${loopDataEB.url}" target="_blank"> Learn More </a></div>
                  </div>
+                </div>
               `
         ) //end of append eventbrite
 
@@ -335,5 +339,6 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
     }); //END OF 2ND AJAX
 
   }); //END of 1st ajax
+
 
 }; //End of RunAJAX
