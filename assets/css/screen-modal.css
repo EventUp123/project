@@ -134,7 +134,7 @@ button, input[type=submit] {
 }
 
 .grid-item {
-	width: 200px;
+	width: 500px;
 	float:left;
 	margin-right:10px;
 	white-space: nowrap; 
@@ -143,6 +143,17 @@ button, input[type=submit] {
     text-overflow: ellipsis;
 
 }
+
+#eventbrite-results {
+	margin-left:40px;
+}
+
+#meetup-results {
+	margin-right:40px;
+}
+
+
+
 
 /*End of EventUp CSS*/
 
