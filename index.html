@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,7 @@
   <!-- fonts and logo -->
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <link rel="shortcut icon" href="assets/images/logo-events.png">
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Work+Sans" rel="stylesheet"
-
-  <!-- stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Work+Sans" rel="stylesheet" <!-- stylesheets -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/screen-modal.css">
 
@@ -21,305 +20,325 @@
 
 
   <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
 </head>
 
 <body>
   <div class="modal-results-main">
-      <!-- Modal -->
-      <div class="modal fade" id="eventModal" role="dialog">
+    <!-- Modal -->
+    <div class="modal fade" id="eventModal" role="dialog">
       <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Results in your area by topic</h2>
-        </div>
-        <!-- modal body -->
-        <div class="modal-body">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">Results in your area by topic</h2>
+          </div>
+          <!-- modal body -->
+          <div class="modal-body">
             <div class="row">
               <!-- eventbrite results -->
               <div class="col-md-6">
                 <div class="media">
-                  <div id="eventbrite-results">
-                  <!-- results dump here -->
+                  <div id="eventbrite-results" class="row">
+                    <!-- results dump here -->
+                  </div>
+                  <!-- <div id="meetup-results" class="row">
+                  </div> -->
                 </div>
               </div>
-            </div>
               <!-- meetup results -->
               <div class="col-md-6">
                 <div class="media">
-                  <div id="meetup-results">
-              <!-- results dump here -->
+                  <div id="meetup-results" class="row">
+                    <!-- results dump here -->
                   </div>
                 </div>
               </div>
-            </div> <!--end of row-->
-
-            <div class=row id="test-drive"></div>
-              <!-- modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-                  </div>         <!-- end of modal content -->
-                </div>
-              </div>
             </div>
-          </div><!-- end of modal -->
+            <!--end of row-->
 
-
-
-
-
-      <!-- header -->
-      <header class="page-header">
-        <div class="page-header__inner">
-            <div class="page-header__group">
-              <h1 class="page-header__title">EventUp</h1><br>
-                <h2 id="sub-head">Find your events in the Bay Area as easy as <span class="yellow">123!</span></h2>
+            <div class="row" id="test-drive"></div>
+            <!-- modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
+          </div>
+          <!-- end of modal content -->
         </div>
-      </header>
+      </div>
+    </div>
+  </div>
+  <!-- end of modal -->
 
-    	<div class="page-content">
-    		<main class="page-content__main">
-    			<section class="page-content__gallery">
-    				<div class="gallery">
-    					<div class="gallery__inner">
-    						<hr>
-                <div class="container">
-    						<!-- <div class="content-fit">
-    							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    							<hr>
-    						</div> -->
+
+
+
+
+  <!-- header -->
+  <header class="page-header">
+    <div class="page-header__inner">
+      <div class="page-header__group">
+        <h1 class="page-header__title">EventUp</h1><br>
+        <h2 id="sub-head">Find your events in the Bay Area as easy as <span class="yellow">123!</span></h2>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-content">
+    <main class="page-content__main">
+      <section class="page-content__gallery">
+        <div class="gallery">
+          <div class="gallery__inner">
+            <hr>
+            <div class="container">
+              <!-- <div class="content-fit">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <hr>
+                </div> -->
               <!-- Name Input -->
-              <p class="steps"><!-- <span class="details">Step 1 <br></span> -->Input your name</p><br>
-    							<div class="content-fit">
-    								<div class="input-group input-group-lg">
-    	 				  			 <span class="input-group-addon btn-grad white btn-text" id="sizing-addon2 naming">Name</span>
-    					 				 <input type="text" class="form-control" placeholder="Insert Name" aria-describedby="sizing-addon2" id="name-input">
-    								</div>
-    								<br><hr>
+              <p class="steps">
+                <!-- <span class="details">Step 1 <br></span> -->Input your name</p><br>
+              <div class="content-fit">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon btn-grad white btn-text" id="sizing-addon2 naming">Name</span>
+                  <input type="text" class="form-control" placeholder="Insert Name" aria-describedby="sizing-addon2" id="name-input">
+                </div>
+                <br>
+                <hr>
 
-                    <!-- City Radio Buttons -->
-                    <p class="steps"><!-- <span class="details">Step 2 <br></span> -->Select a city</p>
-                            <div id="radio">
-                            <div class="btn-group" data-toggle="buttons">
-                              <label class="btn btn-primary active city-btn btn-grad btn-text" data-city="san francisco" data-meetup="San Francisco">
+                <!-- City Radio Buttons -->
+                <p class="steps">
+                  <!-- <span class="details">Step 2 <br></span> -->Select a city</p>
+                <div id="radio">
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active city-btn btn-grad btn-text" data-city="san francisco" data-meetup="San Francisco">
                                 <input type="radio" name="options" id="option1" autocomplete="off" checked> San Francisco
                               </label>
 
-                              <label class="btn btn-primary city-btn btn-grad btn-text" data-city="oakland" data-meetup="Oakland">
+                    <label class="btn btn-primary city-btn btn-grad btn-text" data-city="oakland" data-meetup="Oakland">
                                 <input type="radio" name="options" id="option2" autocomplete="off"> Oakland
                               </label>
 
-                              <label class="btn btn-primary city-btn btn-grad btn-text" data-city="berkeley" data-meetup="Berkeley">
+                    <label class="btn btn-primary city-btn btn-grad btn-text" data-city="berkeley" data-meetup="Berkeley">
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Berkeley
                               </label>
 
-                              <!-- <label class="btn btn-primary city-btn" data-city="mountain view" data-meetup="Mountain View">
+                    <!-- <label class="btn btn-primary city-btn" data-city="mountain view" data-meetup="Mountain View">
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Mountain View
                               </label> -->
 
-                              <label class="btn btn-primary city-btn btn-grad btn-text" data-city="palo alto" data-meetup="Palo Alto">
+                    <label class="btn btn-primary city-btn btn-grad btn-text" data-city="palo alto" data-meetup="Palo Alto">
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Palo Alto
                               </label>
 
-                              <label class="btn btn-primary city-btn btn-grad btn-text" data-city="san jose" data-meetup="San Jose">
+                    <label class="btn btn-primary city-btn btn-grad btn-text" data-city="san jose" data-meetup="San Jose">
                                 <input type="radio" name="options" id="option3" autocomplete="off"> San Jose
                               </label>
 
-                            </div>
-                          </div>
-                        </div>
-                  </div><hr> <!-- end of container -->
-    <!-- Select Topics -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <!-- end of container -->
+            <!-- Select Topics -->
 
-              <p class="steps" id="step-3"><!-- <span class="details">Step 3 <br></span> -->Select a topic and watch your events populate</p>
+            <p class="steps" id="step-3">
+              <!-- <span class="details">Step 3 <br></span> -->Select a topic and watch your events populate</p>
 
             <br>
-              
-              <p class="steps">Trending Now:</p>
-              <div class="gallery__flow">
+
+
+            <div class="steps" id="trending-results"></div>
+            <div class="gallery__flow">
               <!-- topic: sports -->
-                  <div class="gallery__isle">
-                    <div id="sportsTag" class="gallery__isle-inner">
-                      <div class="gallery__isle-content">
-                        <figure class="gallery__preview" data-topic="sports" data-topic="art" type="button" data-toggle="modal" data-target="#eventModal">
-                          <div class="gallery__preview-image"><img alt="sports" src="assets/images/topics/sports-img.jpg"></div>
-                          <figcaption class="gallery__preview-caption">
-                            <div class="gallery__preview-info">
-                              <h2 style="color:white ; font-weight:bold" class="writeme1" class="gallery__preview-title"></h2>
-                            </div>
-                          </figcaption>
-                        </figure>
-                      </div>
-                    </div>
+              <div class="gallery__isle">
+                <div id="sportsTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="sports" data-topic="art" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="sports" src="assets/images/topics/sports-img.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme1" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
                   </div>
+                </div>
+              </div>
 
-                  <!-- topic: art -->
-    							<div class="gallery__isle">
-    								<div id="ArtTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="art" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="art" src="assets/images/topics/ckturistando-335312.jpg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme2" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: art -->
+              <div class="gallery__isle">
+                <div id="ArtTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="art" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="art" src="assets/images/topics/ckturistando-335312.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme2" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: tech -->
-    							<div class="gallery__isle" >
-    								<div id="technologyTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="technology" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="techonolgy" src="assets/images/topics/programming-img.jpeg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme3" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: tech -->
+              <div class="gallery__isle">
+                <div id="technologyTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="technology" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="techonolgy" src="assets/images/topics/programming-img.jpeg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme3" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: outdoors -->
-    							<div class="gallery__isle" >
-    								<div id="outdoorTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="outdoors" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="Outdoors" src="assets/images/topics/outdoors-img.jpg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme4" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: outdoors -->
+              <div class="gallery__isle">
+                <div id="outdoorTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="outdoors" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="Outdoors" src="assets/images/topics/outdoors-img.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme4" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: music-->
-    							<div class="gallery__isle">
-    								<div id="musicTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="music" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="music" src="assets/images/topics/music-img.jpg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme5" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: music-->
+              <div class="gallery__isle">
+                <div id="musicTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="music" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="music" src="assets/images/topics/music-img.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme5" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: fashion -->
-    							<div class="gallery__isle" >
-    								<div id="fashionTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="fashion" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="fashion" src="assets/images/topics/fashion-img.png"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme6" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: fashion -->
+              <div class="gallery__isle">
+                <div id="fashionTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="fashion" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="fashion" src="assets/images/topics/fashion-img.png"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme6" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: careers -->
-    							<div class="gallery__isle" >
-    								<div id="careerTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="careers" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="Career/Business" src="assets/images/topics/business-img.jpg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme7" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: careers -->
+              <div class="gallery__isle">
+                <div id="careerTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="careers" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="Career/Business" src="assets/images/topics/business-img.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme7" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: gaming-->
-    							<div class="gallery__isle">
-    								<div id="gamingTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="gaming" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="gaming" src="assets/images/topics/gaming-img.jpg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme8" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: gaming-->
+              <div class="gallery__isle">
+                <div id="gamingTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="gaming" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="gaming" src="assets/images/topics/gaming-img.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme8" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-                  <!-- topic: family -->
-    							<div class="gallery__isle">
-    								<div id="familyTag" class="gallery__isle-inner">
-    									<div class="gallery__isle-content">
-    										<figure class="gallery__preview" data-topic="family" type="button" data-toggle="modal" data-target="#eventModal">
-    											<div class="gallery__preview-image"><img alt="family" src="assets/images/topics/family-img.jpg"></div>
-    											<figcaption class="gallery__preview-caption">
-    												<div class="gallery__preview-info">
-    													<h2 style="color:white ; font-weight:bold" class="writeme9" class="gallery__preview-title"></h2>
-    												</div>
-    											</figcaption>
-    										</figure>
-    									</div>
-    								</div>
-    							</div>
+              <!-- topic: family -->
+              <div class="gallery__isle">
+                <div id="familyTag" class="gallery__isle-inner">
+                  <div class="gallery__isle-content">
+                    <figure class="gallery__preview" data-topic="family" type="button" data-toggle="modal" data-target="#eventModal">
+                      <div class="gallery__preview-image"><img alt="family" src="assets/images/topics/family-img.jpg"></div>
+                      <figcaption class="gallery__preview-caption">
+                        <div class="gallery__preview-info">
+                          <h2 style="color:white ; font-weight:bold" class="writeme9" class="gallery__preview-title"></h2>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
 
-    							<!-- <div id="api">
-    								<hr>
-    								<h1 id="api-title">Now For Your Stuff!</h1>
-    							</div> -->
+              <!-- <div id="api">
+                    <hr>
+                    <h1 id="api-title">Now For Your Stuff!</h1>
+                  </div> -->
 
-    						</div> <!-- end of gallery flow -->
-    					</div> <!-- end of gallery inner -->
-    				</div> <!-- end of gallery-->
-    			</section>
-    		</main>
-    	</div> <!-- end of page content div-->
-  </div> <!-- end of modal-results-main div-->
+            </div>
+            <!-- end of gallery flow -->
+          </div>
+          <!-- end of gallery inner -->
+        </div>
+        <!-- end of gallery-->
+      </section>
+    </main>
+  </div>
+  <!-- end of page content div-->
+  </div>
+  <!-- end of modal-results-main div-->
 
-    	<footer class="page-footer">
-    		<div class="page-footer__inner">
-    			<div class="page-footer__group">
-    				<p class="page-footer__text"><a class="page-footer__text-link" href="https://github.com/EventUp123/project">UC Berkeley Extension</a></p>
-            <hr>
-    				<p class="page-footer__text">Built by: <br> Aaron, Jaymee, Dario, and Kevin</p>
-    			</div>
-    		</div>
-    	</footer>
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <div class="page-footer__group">
+        <p class="page-footer__text"><a class="page-footer__text-link" href="https://github.com/EventUp123/project">UC Berkeley Extension</a></p>
+        <hr>
+        <p class="page-footer__text">Built by: <br> Aaron, Jaymee, Dario, and Kevin</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Added link to the jQuery Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/1.1.4/typed.min.js"></script>
   <script type="text/javascript" src="assets/js/typedLogic.js"></script>
 
-  <script type="text/javascript" src="assets/js/script-modal.js"> </script>
+  <script type="text/javascript" src="assets/js/script-modal.js">
+  </script>
 </body>
+
 </html>

@@ -51,6 +51,10 @@ button, input[type=submit] {
 	color: white;
 }
 
+.border-radius{
+	border-radius: 10px;
+}
+
 .btn-text{
 	font-family: 'Raleway', sans-serif 
 }
@@ -90,9 +94,6 @@ button, input[type=submit] {
 /*	border-radius: 10px;
 */}
 
-.btn-grad-name {background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%)}
-.btn-grad-name:hover { background-position: right center; }
-
 .btn-grad:hover { 
 	background-position: right center; 
 }
@@ -115,6 +116,8 @@ button, input[type=submit] {
 }
 .modal-title{
 	text-align: center;
+	font-family: 'Raleway', sans-serif;
+
 }
 
 .modal-header-title{
@@ -122,6 +125,7 @@ button, input[type=submit] {
   padding-top: 5px;
   font-size: 20px;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 /*.modal-backdrop.in{
 	opacity: 0;
@@ -157,6 +161,7 @@ button, input[type=submit] {
 .modal-link-event, .modal-date{
 	font-size: 17px;
 	text-align: center;
+	font-family: 'Raleway', sans-serif;
 }
 
 .modal-header-title{
