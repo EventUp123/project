@@ -17,7 +17,7 @@ var userCityMeetUp;
 var userName;
 
 
-// variables for trending topics 
+// variables for trending topics
 var topicCount = {
   topicCountSports: 0,
   topicCountArt: 0,
@@ -32,6 +32,7 @@ var topicCount = {
 
 var trendingTopics = [];
 var top3Topics = [];
+
 
 // At the initial load, get a snapshot of the current data and find trending topics.
 database.ref().on("value", function(snapshot) {
@@ -52,10 +53,9 @@ function displayTrending(arr) {
   $("#trending-results").append(
     `<p>Top 3 Trending Results: ${arr[0].tempString}, ${arr[1].tempString}, ${arr[2].tempString}  </p>
     `
+  );
 
-  )
-
-}
+};
 
 
 function findTrendingTopics(data) {
@@ -133,6 +133,16 @@ $(document).on("click", ".city-btn", function() {
   userCityEB = $(this).attr("data-city");
   userCityMeetUp = $(this).attr("data-meetup");
   userName = $("#name-input").val().trim();
+  $("#name-user").empty();
+  $("#name-user").append(
+    `${userName}`
+  );
+
+  $("#bay-city").empty();
+  $("#bay-city").append(
+    `${userCityMeetUp}`
+  );
+
 });
 
 
@@ -142,9 +152,12 @@ $(document).on("click", ".gallery__preview", function() {
   runajax(userSelected, userCityEB, userCityMeetUp);
   runFirebase(userName, userSelected, userCityEB, userCityMeetUp);
 
+  $("#events-user").empty();
+  $("#events-user").append(
+    `${userSelected}`
+  );
+
 });
-
-
 
 
 var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
@@ -160,7 +173,7 @@ var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
   //Uploading new profiles info to firebase database
   database.ref().push(newProfile);
 
-  // Clears Count Variables // Dario
+  // Clears Count Variables
   clearCountVariables();
 
   //Creating Firebase even for adding new profiles
@@ -194,9 +207,15 @@ var runFirebase = function(userName, userSelected, userCityEB, userCityMeetUp) {
 
 
 
+
+
+
+
 var runajax = function(userSelected, userCityEB, userCityMeetUp) {
 
   var queryURLeb = "https://www.eventbriteapi.com/v3/events/search/?token=CDKLCBINAPTPOB3IKFWE&q=" + userSelected + "&location.address=" + userCityEB;
+
+
 
   $.ajax({
     url: queryURLeb,
@@ -208,14 +227,13 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
     $("#eventbrite-results").empty()
     var dataEB = response.events;
 
-
     for (var i = 0; i < dataEB.length; i++) {
       var loopDataEB = response.events[i]
+
 
       if (loopDataEB.logo === null) {
 
         $("#eventbrite-results").append(
-
 
           `<div class="masonry-result">
                   <img class="d-flex align-self-start mr-3 results-events-img" src="https://media1.giphy.com/media/d3yxg15kJppJilnW/giphy.gif?fingerprint=e1bb72ff59d32d997858774c4dd609ea">
@@ -223,7 +241,6 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
                    <p class="modal-date"> ${loopDataEB.start.utc} </p>
                    <p class="modal-link-event"><a href = "${loopDataEB.url}" target="_blank"> Learn More </a></div>
                    </div>
-                </div>
                 `
 
         ) //end of append eventbrite
@@ -231,22 +248,18 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
 
       } else {
         $("#eventbrite-results").append(
+
           `<div class="masonry-result">
                 <img class="d-flex align-self-start mr-3 results-events-img" src="${loopDataEB.logo.url}">
                  <h3 class="modal-header-title"> ${loopDataEB.name.html} </h3>
                  <p class="modal-date"> ${loopDataEB.start.utc} </p>
                  <p class="modal-link-event"><a href = "${loopDataEB.url}" target="_blank"> Learn More </a></div>
                  </div>
-                </div>
               `
         ) //end of append eventbrite
 
       } // end of eventbrite forloop
-    }
-    // <div class="modal-descip"> ${loopDataEB.description.html} </div>
-
-    // console.log(resultsEB);
-    // console.log(userCityMeetUp);
+    } // end of a forloop eventbrite
 
 
     var queryURLmu = "https://api.meetup.com/2/open_events?&sign=true&photo-host=public&country=US&topic=" + userSelected + "&city=" + userCityMeetUp + "&state=CA&page=50&key=6073131471a217a1240677f485a497c"
@@ -279,7 +292,6 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
             //console.log(response.results[i].event_url);
             // console.log(response.results[i].description);
 
-            //end of append meetup
             var sportsImage = '<img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/TrXccx2cCI6Xu/giphy.gif">'
 
             var artsImage = '<img class="d-flex align-self-start mr-3 results-events-img" src="https://media.giphy.com/media/gVJKzDaWKSETu/giphy.gif">'
@@ -325,7 +337,6 @@ var runajax = function(userSelected, userCityEB, userCityMeetUp) {
             } else if (userSelected === "careers") {
               meetupDiv(careersImage);
             } else if (userSelected === "gaming") {
-
               meetupDiv(gamingImage);
             } else if (userSelected === "family") {
               meetupDiv(familyImage);

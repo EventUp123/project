@@ -14,11 +14,6 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/screen-modal.css">
 
-
-
-
-
-
   <!-- Firebase Reference -->
   <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
 </head>
@@ -31,7 +26,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title">Results in your area by topic</h2>
+            <h2 class="modal-title"><span id="name-user" class="yellow"></span> here are your <span id="events-user"></span> event in <span id="bay-city"></span></h2>
           </div>
           <!-- modal body -->
           <div class="modal-body">
@@ -39,6 +34,7 @@
               <!-- eventbrite results -->
               <div class="col-md-6">
                 <div class="media">
+                  <!-- <div id="no-city"></div> -->
                   <div id="eventbrite-results" class="row">
                     <!-- results dump here -->
                   </div>
@@ -72,8 +68,6 @@
 
 
 
-
-
   <!-- header -->
   <header class="page-header">
     <div class="page-header__inner">
@@ -92,13 +86,6 @@
             <hr>
             <div class="container">
               <!-- <div class="content-fit">
-    							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    							<hr>
     						</div> -->
               <!-- Name Input -->
               <p class="steps">
@@ -128,10 +115,6 @@
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Berkeley
                               </label>
 
-                    <!-- <label class="btn btn-primary city-btn" data-city="mountain view" data-meetup="Mountain View">
-                                <input type="radio" name="options" id="option3" autocomplete="off"> Mountain View
-                              </label> -->
-
                     <label class="btn btn-primary city-btn btn-grad btn-text" data-city="palo alto" data-meetup="Palo Alto">
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Palo Alto
                               </label>
@@ -149,12 +132,7 @@
             <!-- Select Topics -->
 
             <p class="steps" id="step-3">
-              <!-- <span class="details">Step 3 <br></span> -->Select a topic and watch your events populate</p>
-
-            <br>
-
-
-            <div class="steps" id="trending-results"></div>
+              <!-- <span class="details">Step 3 <br></span> -->Select a topic and watch your events populate. </p> <span class="steps" id="trending-results"></span>
             <div class="gallery__flow">
               <!-- topic: sports -->
               <div class="gallery__isle">
