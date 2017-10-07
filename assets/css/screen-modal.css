@@ -33,88 +33,6 @@ table {
 button, input[type=submit] {
 	cursor: pointer
 }
-/*EventUp CSS*/
-#sub-head{
-	color: 	#ffffff;
-  padding-top: 15px;
-	font-family: 'Lobster', cursive !important;
-	font-size: 35px;
-	font-weight: 700;
-	text-shadow: 0 5px 5px #333;
-
-}
-.yellow{
-  color: 	#FFD700;
-}
-
-.steps{
-  text-align: center;
-  font-size: 25px
-}
-.details{
-  font-weight: bold;
-  font-size: 25px;
-}
-
-#step-3{
-  margin-top: 25px;
-}
-
-#radio{
-  text-align: center !important;
-}
-/*radio btn*/
-.city-btn{
-  margin-top: 25px;
-  padding: 12px;
-  font-size: 20px;
-  border-color: #ffffff;
-
-}
-
-
-/*EventUp Modal CSS*/
-/*modal*/
-}
-.modal-img{
-  -webkit-box-flex: 0;
-	-webkit-flex-grow: 0;
-	-ms-flex-positive: 0;
-	flex-grow: 0;
-	-webkit-flex-shrink: 1;
-	-ms-flex-negative: 1;
-	flex-shrink: 1;
-	width: 80%;
-	/*padding: 1.5vw*/
-  padding: 20px 5px 5px 5px;
-
-}
-
-.modal-header-title{
-  margin-top: 0px;
-  padding-top: 5px;
-  font-size: 20px;
-}
-/*.modal-backdrop.in{
-	opacity: 0;
-}*/
-/*.modal-lg {
-  width: 950px !important!
-}*/
-
-/*Results events*/
-#results-events-img{
-	-webkit-box-flex: 0;
-	-webkit-flex-grow: 0;
-	-ms-flex-positive: 0;
-	flex-grow: 0;
-	-webkit-flex-shrink: 1;
-	-ms-flex-negative: 1;
-	flex-shrink: 1;
-	width: 45%;
-	padding: 1.5vw
-}
-/*End of EventUp CSS*/
 
 ::-moz-selection {
 	background: #fff;
@@ -289,7 +207,7 @@ button, input[type=submit] {
 	width: 25%;
 	padding: 1.5vw
 }
-.gallery__isle-inner {
+.gallery__isle-inner {										/*COOL BOX SHADING HERE!*/
 	position: relative;
 	z-index: 5;
 	width: 100%;
@@ -320,7 +238,7 @@ button, input[type=submit] {
 	height: 100%;
 	overflow: hidden
 }
-.gallery__preview-image img {
+.gallery__preview-image img {  							 /*IMAGE CLASS FOR HTML*/
 	display: block;
 	width: 100%;
 	min-height: 100%
@@ -499,3 +417,84 @@ button, input[type=submit] {
   width: 650px !important!
 
 }
+/*EventUp CSS*/
+#sub-head{
+	color: 	#ffffff;
+  padding-top: 15px;
+	font-family: 'Lobster', cursive !important;
+	font-size: 35px;
+	font-weight: 700;
+	text-shadow: 0 5px 5px #333;
+
+}
+.yellow{
+  color: 	#FFD700;
+}
+
+.steps{
+  text-align: center;
+  font-size: 25px
+}
+.details{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#step-3{
+  margin-top: 25px;
+}
+
+#radio{
+  text-align: center !important;
+}
+/*radio btn*/
+.city-btn{
+  margin-top: 25px;
+  padding: 12px;
+  font-size: 20px;
+  border-color: #ffffff;
+
+}
+
+
+/*EventUp Modal CSS*/
+/*modal*/
+}
+.modal-img{
+  -webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-webkit-flex-shrink: 1;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	width: 80%;
+  padding: 20px 5px 5px 5px;
+
+}
+
+.modal-header-title{
+  margin-top: 0px;
+  padding-top: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+/*Results events*/
+#results-events-img{ 								/*IMAGE CLASS FOR MODAL*/
+	z-index: 5;
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-webkit-flex-shrink: 1;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	padding: 1.5vw;
+	width: 100%;
+	height: 100%;
+	overflow: hidden
+	box-shadow: 10px 10px 5px #888888;
+}
+/*End of EventUp CSS*/
